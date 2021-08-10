@@ -24,7 +24,8 @@ import debug_toolbar
 urlpatterns = [
     path('', TemplateView.as_view(template_name="store/index.html"), name="index"),
     path('admin/', admin.site.urls),
-    path('store/', include('store.urls'))
+    path('store/', include('store.urls')),
+    path('__debug__/', include(debug_toolbar.urls)),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
