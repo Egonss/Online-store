@@ -50,7 +50,7 @@ class ProductImage(models.Model):
         'Product', on_delete=models.CASCADE, related_name="images")
 
     def __str__(self) -> str:
-        return self.image
+        return str(self.image)
 
 
 class Category(models.Model):

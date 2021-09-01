@@ -141,3 +141,5 @@ LOGGING = {
     "loggers": {"django.db.backends": {"level": "DEBUG"}},
     "root": {"handlers": ["console"]},
 }
+
+CRISPY_TEMPLATE_PACK = "bootstrap3"
