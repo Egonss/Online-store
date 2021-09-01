@@ -21,7 +21,7 @@ ORDER_CHOICES = [
 
 class FilterForm(Form):
     name = CharField(required=False)
-    category = ModelChoiceField(
+    categories = ModelChoiceField(
         queryset=Category.objects.all(), required=False)
     order_by = ChoiceField(choices=ORDER_CHOICES, required=False)
     only_in_stock = BooleanField(
@@ -32,14 +32,14 @@ def filter_view(request):
     form = FilterForm(request.GET)
     if form.is_valid():
         name = form.cleaned_data['name']
-        category = form.cleaned_data['category']
+        categories = form.cleaned_data['categories']
         order_by = form.cleaned_data['order_by']
         only_in_stock = form.cleaned_data['only_in_stock']
 
         products = Product.objects.filter(
             name__icontains=name).prefetch_related('images')
-        if category:
-            products = products.filter(category=category)
+        if categories:
+            products = products.filter(categories=categories)
 
         if only_in_stock:
             products = products.filter(stock_count__gt=0)
