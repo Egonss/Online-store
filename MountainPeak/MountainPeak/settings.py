@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'debug_toolbar',
     'crispy_forms',
     'store',
@@ -143,3 +144,8 @@ LOGGING = {
 }
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}

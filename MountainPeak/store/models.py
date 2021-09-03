@@ -2,6 +2,8 @@ from django.db import models
 from decimal import Decimal
 from django.urls import reverse
 from django.utils.text import slugify
+import os
+import pydot
 
 # Create your models here.
 
